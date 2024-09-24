@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Third-Party Page with CSP</title>
+    <!-- CSP to allow specific scripts within the iframe -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://kenwynejohnes.github.io/csp-demo/;">
+</head>
+<body>
+    <h1>Third-Party Content</h1>
+    <p>This iframe attempts to change the parent page's background color using an external script.</p>
+
+    <!-- Load the script hosted on GitHub Pages -->
+    <script src="https://kenwynejohnes.github.io/csp-demo/modify-parent.js"></script>
+</body>
+</html>
