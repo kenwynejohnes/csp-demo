@@ -5,13 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Third-Party Page with CSP</title>
     <!-- CSP to allow specific scripts within the iframe -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://kenwynejohnes.github.io/csp-demo/;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self';">
 </head>
 <body>
     <h1>Third-Party Content</h1>
-    <p>This iframe attempts to change the parent page's background color using an external script.</p>
+    <p>This iframe attempts to change the parent page's background color.</p>
 
-    <!-- Load the script hosted on GitHub Pages -->
-    <script src="https://kenwynejohnes.github.io/csp-demo/modify-parent.js"></script>
+    <!-- Script that tries to modify the parent page -->
+    <script>
+        try {
+            // Attempt to change the parent page's background color
+            parent.document.body.style.backgroundColor = "red";
+            console.log("Successfully changed the parent page's background color.");
+        } catch (error) {
+            console.error("Sandbox restriction in effect: Cannot access parent window:", error);
+        }
+    </script>
 </body>
 </html>
