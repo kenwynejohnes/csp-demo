@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page with Iframe</title>
+    <title>Parent Page with Sandbox</title>
 </head>
 <body>
     <h1>Main Application Page</h1>
-    <p>This is a demo to show the vulnerability of running third-party JavaScript inside an iframe.</p>
-    
-    <!-- Embed an iframe --> <!-- Vulnerable code -->
-    <!-- <iframe src="third-party.html" width="600" height="400"></iframe>  -->
-    <iframe src="third-party.html" width="600" height="400" sandbox="allow-scripts"></iframe>
+    <p>This page uses a sandboxed iframe loaded from a different domain to enforce security boundaries.</p>
 
-    <!-- Add Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://trusted.cdn.com;">
-
-
+    <!-- Sandbox attribute to restrict iframe access -->
+    <iframe src="https://kenwynejohnes.github.io/csp-demo/third-party.html" 
+            width="600" 
+            height="400" 
+            sandbox="allow-scripts"></iframe>
 </body>
 </html>
+
